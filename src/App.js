@@ -1,8 +1,19 @@
+import { ColorModeContext, useMode } from "./theme";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+
 function App() {
+  const [theme, colorMode] = useMode();
   return (
-    <div className="app">
-      <h1>React-Admin-Dashboard</h1>
-    </div>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <div className="app">
+          <main className="content">
+            <h1>consuming is done and ready for router</h1>
+          </main>
+        </div>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 }
 
