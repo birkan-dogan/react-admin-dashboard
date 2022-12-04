@@ -266,6 +266,39 @@ export const mockDataInvoices = [
   },
 ];
 
+export const mockQuestions = [
+  {
+    id: 1,
+    question: "Important Question",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus unde nesciunt ut expedita voluptates minima provident adipisci eveniet corporis, dolorem temporibus, facilis deleniti magnam repellendus excepturi neque nemo. Est id quisquam rerum! Mollitia nemo beatae soluta animamet quam possimus eumperspiciatis laudantium sapiente dolorem quidem, omnis at architecto cupiditate.",
+  },
+  {
+    id: 2,
+    question: "Another Important Question",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus unde nesciunt ut expedita voluptates minima provident adipisci eveniet corporis, dolorem temporibus, facilis deleniti magnam repellendus excepturi neque nemo. Est id quisquam rerum! Mollitia nemo beatae soluta animamet quam possimus eumperspiciatis laudantium sapiente dolorem quidem, omnis at architecto cupiditate.",
+  },
+  {
+    id: 3,
+    question: "Another Important Question",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus unde nesciunt ut expedita voluptates minima provident adipisci eveniet corporis, dolorem temporibus, facilis deleniti magnam repellendus excepturi neque nemo. Est id quisquam rerum! Mollitia nemo beatae soluta animamet quam possimus eumperspiciatis laudantium sapiente dolorem quidem, omnis at architecto cupiditate.",
+  },
+  {
+    id: 4,
+    question: "Another Important Question",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus unde nesciunt ut expedita voluptates minima provident adipisci eveniet corporis, dolorem temporibus, facilis deleniti magnam repellendus excepturi neque nemo. Est id quisquam rerum! Mollitia nemo beatae soluta animamet quam possimus eumperspiciatis laudantium sapiente dolorem quidem, omnis at architecto cupiditate.",
+  },
+  {
+    id: 5,
+    question: "Another Important Question",
+    answer:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus unde nesciunt ut expedita voluptates minima provident adipisci eveniet corporis, dolorem temporibus, facilis deleniti magnam repellendus excepturi neque nemo. Est id quisquam rerum! Mollitia nemo beatae soluta animamet quam possimus eumperspiciatis laudantium sapiente dolorem quidem, omnis at architecto cupiditate.",
+  },
+];
+
 export const mockTransactions = [
   {
     txId: "01e4dsa",

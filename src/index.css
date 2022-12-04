@@ -5,8 +5,8 @@ body,
 #root,
 .app,
 .content {
-  height: 100%;
-  width: 100%;
+  min-height: 100%;
+  max-width: 100%;
   font-family: "Source Sans Pro", sans-serif;
 }
 .app {
