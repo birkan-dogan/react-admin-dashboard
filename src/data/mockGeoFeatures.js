@@ -1,3 +1,5 @@
+// data format comes from here: https://raw.githubusercontent.com/plouc/nivo/master/website/src/data/components/geo/world_countries.json
+
 export const geoFeatures = {
   type: "FeatureCollection",
   features: [
