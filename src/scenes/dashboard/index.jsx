@@ -9,6 +9,7 @@ import {
   TrafficOutlined,
 } from "@mui/icons-material";
 import StatBox from "../../components/StatBox";
+import Row2 from "../../components/Row2";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -119,6 +120,9 @@ const Dashboard = () => {
             }
           />
         </Box>
+
+        {/* row 2 */}
+        <Row2 />
       </Box>
     </Box>
   );
