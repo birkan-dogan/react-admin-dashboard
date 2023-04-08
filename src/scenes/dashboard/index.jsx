@@ -10,6 +10,7 @@ import {
 } from "@mui/icons-material";
 import StatBox from "../../components/StatBox";
 import Row2 from "../../components/Row2";
+import Row3 from "../../components/Row3";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -123,6 +124,7 @@ const Dashboard = () => {
 
         {/* row 2 */}
         <Row2 />
+        <Row3 />
       </Box>
     </Box>
   );
