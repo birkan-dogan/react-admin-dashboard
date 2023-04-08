@@ -1,8 +1,8 @@
 import { DownloadOutlined } from "@mui/icons-material";
 import { Box, IconButton, Typography, useTheme } from "@mui/material";
-import { mockTransactions } from "../data/mockData";
-import LineChart from "./LineChart";
-import { tokens } from "../theme";
+import { mockTransactions } from "../../data/mockData";
+import LineChart from "../LineChart";
+import { tokens } from "../../theme";
 
 const Row2 = () => {
   const theme = useTheme();

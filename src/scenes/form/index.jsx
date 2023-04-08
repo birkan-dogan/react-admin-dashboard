@@ -19,15 +19,16 @@ const phoneRegExp =
 
 // this schema consist of the validation logic for each field that we're using
 const userSchema = yup.object().shape({
-  firstName: yup.string().required("required"),
-  lastName: yup.string().required("required"),
-  email: yup.string().email("invalid email").required("required"),
+  firstName: yup.string().trim().required("required"),
+  lastName: yup.string().trim().required("required"),
+  email: yup.string().trim().email("invalid email").required("required"),
   contact: yup
     .string()
+    .trim()
     .matches(phoneRegExp, "Phone number is not valid")
     .required("required"),
-  address1: yup.string().required("required"),
-  address2: yup.string().required("required"),
+  address1: yup.string().trim().required("required"),
+  address2: yup.string().trim().required("required"),
 });
 
 const Form = () => {

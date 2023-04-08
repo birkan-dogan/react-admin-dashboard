@@ -1,8 +1,8 @@
 import { Box, Typography, useTheme } from "@mui/material";
-import ProgressCircle from "./ProgressCircle";
-import { tokens } from "../theme";
-import BarChart from "./BarChart";
-import GeographyChart from "./GeographyChart";
+import ProgressCircle from "../ProgressCircle";
+import { tokens } from "../../theme";
+import BarChart from "../BarChart";
+import GeographyChart from "../GeographyChart";
 
 const Row3 = () => {
   const theme = useTheme();

@@ -1,7 +1,7 @@
 import { Box, useTheme } from "@mui/material";
-import { tokens } from "../theme";
-import StatBox from "./StatBox";
-import { mockStateBox as stateBox } from "../data/mockData";
+import { tokens } from "../../theme";
+import StatBox from "../StatBox";
+import { mockStateBox as stateBox } from "../../data/mockData";
 import {
   EmailOutlined,
   PersonAdd,

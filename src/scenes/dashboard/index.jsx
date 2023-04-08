@@ -2,9 +2,9 @@ import { Box, Button, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
 import { DownloadOutlined } from "@mui/icons-material";
-import Row2 from "../../components/Row2";
-import Row3 from "../../components/Row3";
-import Row1 from "../../components/Row1";
+import Row1 from "../../components/rows/Row1";
+import Row2 from "../../components/rows/Row2";
+import Row3 from "../../components/rows/Row3";
 
 const Dashboard = () => {
   const theme = useTheme();
