@@ -350,6 +350,37 @@ export const mockTransactions = [
   },
 ];
 
+export const mockStateBox = [
+  {
+    id: 1,
+    title: "12,361",
+    subtitle: "Emails Sent",
+    progress: "0.75",
+    increase: "+14%",
+  },
+  {
+    id: 2,
+    title: "432,225",
+    subtitle: "Sales Obtained",
+    progress: "0.5",
+    increase: "+18%",
+  },
+  {
+    id: 3,
+    title: "32,325",
+    subtitle: "New Clients",
+    progress: "0.30",
+    increase: "+4%",
+  },
+  {
+    id: 4,
+    title: "1,325,123",
+    subtitle: "Traffic Inbound",
+    progress: "0.80",
+    increase: "+43%",
+  },
+];
+
 export const mockBarData = [
   {
     country: "AD",
