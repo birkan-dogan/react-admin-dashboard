@@ -1,7 +1,14 @@
 import { Box, Button, useTheme } from "@mui/material";
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
-import { DownloadOutlined } from "@mui/icons-material";
+import {
+  DownloadOutlined,
+  EmailOutlined,
+  PersonAdd,
+  PointOfSale,
+  TrafficOutlined,
+} from "@mui/icons-material";
+import StatBox from "../../components/StatBox";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -24,6 +31,94 @@ const Dashboard = () => {
         >
           <DownloadOutlined sx={{ mr: "10px" }} /> Download Reports
         </Button>
+      </Box>
+
+      {/* Grid */}
+      <Box
+        display="grid"
+        gridTemplateColumns="repeat(12, 1fr)"
+        gridAutoRows="140px"
+        gap="20px"
+      >
+        {/* row 1 */}
+        <Box
+          gridColumn="span 3"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <StatBox
+            title="12,361"
+            subtitle="Emails Sent"
+            progress="0.75"
+            increase="+14%"
+            icon={
+              <EmailOutlined
+                sx={{ color: colors.greenAccent[600], fontSize: "24px" }}
+              />
+            }
+          />
+        </Box>
+
+        <Box
+          gridColumn="span 3"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <StatBox
+            title="432,225"
+            subtitle="Sales Obtained"
+            progress="0.5"
+            increase="+18%"
+            icon={
+              <PointOfSale
+                sx={{ color: colors.greenAccent[600], fontSize: "24px" }}
+              />
+            }
+          />
+        </Box>
+
+        <Box
+          gridColumn="span 3"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <StatBox
+            title="32,325"
+            subtitle="New Clients"
+            progress="0.30"
+            increase="+4%"
+            icon={
+              <PersonAdd
+                sx={{ color: colors.greenAccent[600], fontSize: "24px" }}
+              />
+            }
+          />
+        </Box>
+        <Box
+          gridColumn="span 3"
+          backgroundColor={colors.primary[400]}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <StatBox
+            title="1,325,123"
+            subtitle="Traffic Inbound"
+            progress="0.80"
+            increase="+43%"
+            icon={
+              <TrafficOutlined
+                sx={{ color: colors.greenAccent[600], fontSize: "24px" }}
+              />
+            }
+          />
+        </Box>
       </Box>
     </Box>
   );
