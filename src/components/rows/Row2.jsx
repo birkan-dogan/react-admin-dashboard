@@ -11,11 +11,7 @@ const Row2 = () => {
   return (
     <>
       {/* left-side */}
-      <Box
-        gridColumn="span 8"
-        gridRow="span 2"
-        backgroundColor={colors.primary[400]}
-      >
+      <Box backgroundColor={colors.primary[400]} className="dashboard-chart">
         <Box
           mt="25px"
           p="0 30px"
@@ -52,10 +48,10 @@ const Row2 = () => {
       {/* right side */}
 
       <Box
-        gridColumn="span 4"
-        gridRow="span 2"
         backgroundColor={colors.primary[400]}
         overflow="auto"
+        width="95%"
+        height="200px"
       >
         <Box
           display="flex"

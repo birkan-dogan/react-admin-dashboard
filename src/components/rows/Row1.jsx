@@ -23,15 +23,22 @@ const Row1 = () => {
   ];
 
   return (
-    <>
+    <Box
+      display="flex"
+      alignItems="center"
+      justifyContent="space-between"
+      gap="18px"
+      width="95%"
+      flexWrap="wrap"
+    >
       {stateBox.map((state) => (
         <Box
-          gridColumn="span 3"
           backgroundColor={colors.primary[400]}
           display="flex"
           alignItems="center"
           justifyContent="center"
           key={state.id}
+          className="flex-box"
         >
           <StatBox
             title={state.title}
@@ -42,7 +49,7 @@ const Row1 = () => {
           />
         </Box>
       ))}
-    </>
+    </Box>
   );
 };
 

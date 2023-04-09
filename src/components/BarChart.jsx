@@ -48,6 +48,7 @@ const BarChart = ({ isDashboard }) => {
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.3}
       valueScale={{ type: "linear" }}
+      enableLabel={isDashboard && false}
       indexScale={{ type: "band", round: true }}
       colors={{ scheme: "nivo" }}
       borderColor={{
@@ -56,14 +57,18 @@ const BarChart = ({ isDashboard }) => {
       }}
       axisTop={null}
       axisRight={null}
-      axisBottom={{
-        tickSize: 5,
-        tickPadding: 5,
-        tickRotation: 0,
-        legend: isDashboard ? undefined : "country",
-        legendPosition: "middle",
-        legendOffset: 32,
-      }}
+      axisBottom={
+        !isDashboard
+          ? {
+              tickSize: 5,
+              tickPadding: 5,
+              tickRotation: 0,
+              legend: "country",
+              legendPosition: "middle",
+              legendOffset: 32,
+            }
+          : null
+      }
       axisLeft={{
         tickSize: 5,
         tickPadding: 5,

@@ -58,15 +58,19 @@ const LineChart = ({ isDashboard = false }) => {
       curve="catmullRom"
       axisTop={null}
       axisRight={null}
-      axisBottom={{
-        orient: "bottom",
-        tickSize: 5,
-        tickPadding: 5,
-        tickRotation: 0,
-        legend: isDashboard ? undefined : "Transportation",
-        legendOffset: 36,
-        legendPosition: "middle",
-      }}
+      axisBottom={
+        !isDashboard
+          ? {
+              orient: "bottom",
+              tickSize: 5,
+              tickPadding: 5,
+              tickRotation: 0,
+              legend: "Transportation",
+              legendOffset: 36,
+              legendPosition: "middle",
+            }
+          : null
+      }
       axisLeft={{
         orient: "left",
         tickSize: 5,

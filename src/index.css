@@ -48,8 +48,40 @@ body,
   z-index: -1;
 }
 
+.flex-box {
+  width: 320px;
+  height: 100px;
+}
+
+.dashboard-chart {
+  width: 95%;
+  display: block;
+}
+
+.boxes-row3 {
+  width: 650px;
+  height: 250px;
+  padding: 15px;
+}
+
 @media only screen and (max-width: 824px) {
   .calendar {
     flex-direction: column-reverse;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .boxes-row3 {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 521px) {
+  .dashboard-button {
+    display: none;
+  }
+
+  .boxes-row3 {
+    width: 300px;
   }
 }

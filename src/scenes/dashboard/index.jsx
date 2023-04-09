@@ -14,7 +14,7 @@ const Dashboard = () => {
     <Box m="20px">
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
-        <Box>
+        <Box className="dashboard-button">
           <Button
             sx={{
               backgroundColor: colors.blueAccent[700],
@@ -31,10 +31,11 @@ const Dashboard = () => {
 
       {/* Grid */}
       <Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="140px"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
         gap="20px"
+        flexWrap="wrap"
       >
         <Row1 />
         <Row2 />
