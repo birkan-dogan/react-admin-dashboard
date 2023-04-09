@@ -1,3 +1,14 @@
+import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
+import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
+import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
+import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
+import PieChartOutlineOutlinedIcon from "@mui/icons-material/PieChartOutlineOutlined";
+import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
+import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
+import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import { tokens } from "../theme";
 
 export const mockDataTeam = [
@@ -1343,5 +1354,87 @@ export const mockGeographyData = [
   {
     id: "KOR",
     value: 171135,
+  },
+];
+
+// sidebar data
+export const sideBarData = [
+  {
+    id: 1,
+    title: "Dashboard",
+    to: "/",
+    icon: <HomeOutlinedIcon />,
+  },
+  {
+    id: 2,
+    title: "Data",
+  },
+  {
+    id: 3,
+    title: "Manage Team",
+    to: "/team",
+    icon: <PeopleOutlinedIcon />,
+  },
+  {
+    id: 4,
+    title: "Contacts Information",
+    to: "/contacts",
+    icon: <ContactsOutlinedIcon />,
+  },
+  {
+    id: 5,
+    title: "Invoices Balances",
+    to: "/invoices",
+    icon: <ReceiptOutlinedIcon />,
+  },
+  {
+    id: 6,
+    title: "Pages",
+  },
+  {
+    id: 7,
+    title: "Profile Form",
+    to: "/form",
+    icon: <PersonOutlinedIcon />,
+  },
+  {
+    id: 8,
+    title: "Calendar",
+    to: "/calendar",
+    icon: <CalendarTodayOutlinedIcon />,
+  },
+  {
+    id: 9,
+    title: "FAQ Page",
+    to: "/faq",
+    icon: <HelpOutlineOutlinedIcon />,
+  },
+  {
+    id: 10,
+    title: "Charts",
+  },
+  {
+    id: 11,
+    title: "Bar Chart",
+    to: "/bar",
+    icon: <BarChartOutlinedIcon />,
+  },
+  {
+    id: 12,
+    title: "Pie Chart",
+    to: "/pie",
+    icon: <PieChartOutlineOutlinedIcon />,
+  },
+  {
+    id: 13,
+    title: "Line Chart",
+    to: "/line",
+    icon: <TimelineOutlinedIcon />,
+  },
+  {
+    id: 14,
+    title: "Geography Chart",
+    to: "/geography",
+    icon: <MapOutlinedIcon />,
   },
 ];
