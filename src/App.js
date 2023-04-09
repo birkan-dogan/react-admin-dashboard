@@ -14,16 +14,22 @@ import Pie from "./scenes/pie";
 import Faq from "./scenes/faq";
 import Calendar from "./scenes/calendar";
 import Geography from "./scenes/geography";
+import { useState } from "react";
 
 function App() {
   const [theme, colorMode] = useMode();
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="app">
-          <Sidebar />
-          <main className="content">
+          <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+          <main
+            className={isCollapsed ? "content" : "content content-box"}
+            onClick={() => setIsCollapsed(true)}
+          >
             <Topbar />
             <Routes>
               <Route path="/" element={<Dashboard />} />
