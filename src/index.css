@@ -47,3 +47,9 @@ body,
 .content-box {
   z-index: -1;
 }
+
+@media only screen and (max-width: 824px) {
+  .calendar {
+    flex-direction: column-reverse;
+  }
+}

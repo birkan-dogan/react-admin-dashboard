@@ -6,14 +6,16 @@ import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettin
 import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined";
 import Header from "../../components/Header";
+import { useMemo } from "react";
 
 const Team = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
+  const widthOfWindow = useMemo(() => window.innerWidth, []);
+
   // headerName represents the column title name of the table
   const columns = [
-    { field: "id", headerName: "ID" },
     {
       field: "name",
       headerName: "Name",
@@ -21,32 +23,20 @@ const Team = () => {
       cellClassName: "name-column--cell",
     },
     {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
-    },
-    {
       field: "phone",
       headerName: "Phone Number",
-      flex: 1,
-    },
-    {
-      field: "email",
-      headerName: "Email",
-      flex: 1,
+      flex: 0.5,
     },
     {
       field: "access",
       headerName: "Access Level",
-      flex: 1,
+      flex: 0.5,
 
       // depending on the access level
       renderCell: ({ row: { access } }) => {
         return (
           <Box
-            width="60%"
+            width="90px"
             m="0 auto"
             p="5px"
             display="flex"
@@ -69,6 +59,11 @@ const Team = () => {
           </Box>
         );
       },
+    },
+    {
+      field: "email",
+      headerName: "Email",
+      flex: 1,
     },
   ];
 
@@ -102,7 +97,10 @@ const Team = () => {
           },
         }}
       >
-        <DataGrid rows={mockDataTeam} columns={columns} />
+        <DataGrid
+          rows={mockDataTeam}
+          columns={widthOfWindow >= 680 ? columns : columns.slice(0, 3)}
+        />
       </Box>
     </Box>
   );

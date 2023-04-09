@@ -20,6 +20,10 @@ const Calendar = () => {
   const colors = tokens(theme.palette.mode);
   const [currentEvents, setCurrentEvents] = useState([]);
 
+  let w = window.innerWidth;
+  const rightProperty =
+    w >= 768 ? "dayGridMonth,timeGridWeek,timeGridDay,listMonth" : "";
+
   const handleDateClick = (selected) => {
     const title = prompt("Please enter a new title for your event");
     const calendarApi = selected.view.calendar;
@@ -49,7 +53,7 @@ const Calendar = () => {
   return (
     <Box m="20px">
       <Header title="CALENDAR" subtitle="Full Calendar Interactive Page" />
-      <Box display="flex" justifyContent="space-between">
+      <Box display="flex" justifyContent="space-between" className="calendar">
         {/* Calendar sidebar */}
         <Box
           flex="1 1 20%"
@@ -98,7 +102,7 @@ const Calendar = () => {
             headerToolbar={{
               left: "prev,next,today",
               center: "title",
-              right: "dayGridMonth,timeGridWeek,timeGridDay,listMonth",
+              right: rightProperty,
             }}
             initialView="dayGridMonth"
             editable={true}

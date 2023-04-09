@@ -4,10 +4,13 @@ import { tokens } from "../../theme";
 import { mockDataContacts } from "../../data/mockData";
 import Header from "../../components/Header";
 import { useTheme } from "@mui/material";
+import { useMemo } from "react";
 
 const Contacts = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  const widthOfWindow = useMemo(() => window.innerWidth, []);
 
   // headerName represents the column title name of the table
   const columns = [
@@ -18,13 +21,6 @@ const Contacts = () => {
       headerName: "Name",
       flex: 1,
       cellClassName: "name-column--cell",
-    },
-    {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      headerAlign: "left",
-      align: "left",
     },
     {
       field: "phone",
@@ -91,7 +87,7 @@ const Contacts = () => {
       >
         <DataGrid
           rows={mockDataContacts}
-          columns={columns}
+          columns={widthOfWindow >= 680 ? columns : columns.slice(2, 5)}
           components={{ Toolbar: GridToolbar }}
         />
       </Box>

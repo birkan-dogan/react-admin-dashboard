@@ -3,10 +3,13 @@ import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataInvoices } from "../../data/mockData";
 import Header from "../../components/Header";
+import { useMemo } from "react";
 
 const Invoices = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+
+  const widthOfWindow = useMemo(() => window.innerWidth, []);
 
   // headerName represents the column title name of the table
   const columns = [
@@ -77,7 +80,11 @@ const Invoices = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataInvoices} columns={columns} />
+        <DataGrid
+          checkboxSelection
+          rows={mockDataInvoices}
+          columns={widthOfWindow >= 680 ? columns : columns.slice(1, 4)}
+        />
       </Box>
     </Box>
   );
