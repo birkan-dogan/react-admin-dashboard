@@ -11,8 +11,14 @@ const Dashboard = () => {
   const colors = tokens(theme.palette.mode);
 
   return (
-    <Box m="20px">
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+    <Box>
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        ml="17px"
+        mr="28px"
+      >
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
         <Box className="dashboard-button">
           <Button

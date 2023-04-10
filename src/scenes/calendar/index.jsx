@@ -6,6 +6,7 @@ import listPlugin from "@fullcalendar/list";
 import interactionPlugin from "@fullcalendar/interaction";
 import {
   Box,
+  Button,
   List,
   ListItem,
   ListItemText,
@@ -15,6 +16,7 @@ import {
 import Header from "../../components/Header";
 import { tokens } from "../../theme";
 import ModalComponent from "../../components/Modal";
+import { AddBox } from "@mui/icons-material";
 
 const Calendar = () => {
   const theme = useTheme();
@@ -28,7 +30,6 @@ const Calendar = () => {
   const handleClose = () => setOpen(false);
 
   const handleDateClick = (selected) => {
-    handleOpen();
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
 
@@ -60,7 +61,28 @@ const Calendar = () => {
 
   return (
     <Box m="20px">
-      <Header title="CALENDAR" subtitle="Full Calendar Interactive Page" />
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        ml="17px"
+        mr="28px"
+      >
+        <Header title="CALENDAR" subtitle="Full Calendar Interactive Page" />
+        <Box onClick={() => handleOpen()} className="calendar-button">
+          <Button
+            sx={{
+              backgroundColor: colors.blueAccent[700],
+              color: colors.grey[100],
+              fontSize: "14px",
+              fontWeight: "bold",
+            }}
+          >
+            <AddBox sx={{ mr: "10px" }} /> Add New Task:
+          </Button>
+        </Box>
+      </Box>
+
       <Box display="flex" justifyContent="space-between" className="calendar">
         {/* Calendar sidebar */}
         <Box

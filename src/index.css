@@ -92,4 +92,7 @@ body,
   .boxes-row3 {
     width: 300px;
   }
+  .calendar-button {
+    margin-left: 25px;
+  }
 }
