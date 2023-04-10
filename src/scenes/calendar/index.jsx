@@ -14,29 +14,33 @@ import {
 } from "@mui/material";
 import Header from "../../components/Header";
 import { tokens } from "../../theme";
+import ModalComponent from "../../components/Modal";
 
 const Calendar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [currentEvents, setCurrentEvents] = useState([]);
 
-  let w = window.innerWidth;
-  const rightProperty =
-    w >= 768 ? "dayGridMonth,timeGridWeek,timeGridDay,listMonth" : "";
+  const [currentEvents, setCurrentEvents] = useState([]);
+  const [open, setOpen] = useState(true);
+  const [text, setText] = useState("");
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const handleDateClick = (selected) => {
-    const title = prompt("Please enter a new title for your event");
+    handleOpen();
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
 
-    if (title) {
+    if (text) {
       calendarApi.addEvent({
-        id: `${selected.dateStr}-${title}`,
-        title,
+        id: `${selected.dateStr}-${text}`,
+        title: text,
         start: selected.startStr,
         end: selected.endStr,
         allDay: selected.allDay,
       });
+      setText("");
     }
   };
 
@@ -49,6 +53,10 @@ const Calendar = () => {
       selected.event.remove();
     }
   };
+
+  let w = window.innerWidth;
+  const rightProperty =
+    w >= 768 ? "dayGridMonth,timeGridWeek,timeGridDay,listMonth" : "";
 
   return (
     <Box m="20px">
@@ -115,6 +123,12 @@ const Calendar = () => {
           />
         </Box>
       </Box>
+      <ModalComponent
+        handleClose={handleClose}
+        setText={setText}
+        text={text}
+        open={open}
+      />
     </Box>
   );
 };

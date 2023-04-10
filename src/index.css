@@ -64,6 +64,14 @@ body,
   padding: 15px;
 }
 
+.calendar-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-direction: column;
+}
+
 @media only screen and (max-width: 824px) {
   .calendar {
     flex-direction: column-reverse;
