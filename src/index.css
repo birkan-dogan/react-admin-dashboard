@@ -113,6 +113,82 @@ body,
   animation-iteration-count: 1;
 }
 
+/* tilt phone animation in Dashboard page */
+
+@keyframes sizeIncrease {
+  0% {
+    width: 0;
+    height: 10px;
+  }
+  50% {
+    width: 100px;
+    height: 10px;
+  }
+  100% {
+    width: 100px;
+    height: 160px;
+  }
+}
+/* Add borders */
+@keyframes borderIncrease {
+  100% {
+    border-width: 20px 10px;
+  }
+}
+
+/* fade-in  */
+@keyframes fadeIn {
+  100% {
+    color: #000;
+    opacity: 1;
+  }
+}
+
+/* Rotate device */
+@keyframes rotateRight {
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 50px;
+}
+
+.phone {
+  position: relative;
+  margin-left: -10px;
+  border: 0 solid #000;
+  background: #a9a9a9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  box-sizing: border-box;
+  animation: sizeIncrease 0.5s forwards ease,
+    borderIncrease 0.5s 0.5s forwards ease, rotateRight 0.7s 1s forwards ease;
+}
+.tilt-phone {
+  transform: scale(3);
+  color: #454545;
+  opacity: 0;
+  animation: fadeIn 0.5s 0.8s forwards ease;
+}
+
+/* media queries */
+
 @media only screen and (max-width: 824px) {
   .calendar {
     flex-direction: column-reverse;
