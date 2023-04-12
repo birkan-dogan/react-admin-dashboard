@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import FullCalendar, { formatDate } from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -29,6 +29,8 @@ const Calendar = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const ref = useRef();
+
   const handleDateClick = (selected) => {
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
@@ -46,6 +48,7 @@ const Calendar = () => {
   };
 
   const handleEventClick = (selected) => {
+    handleAdd();
     if (
       window.confirm(
         `Are you sure you want to delete the event '${selected.event.title}'`
@@ -59,6 +62,13 @@ const Calendar = () => {
   const rightProperty =
     w >= 768 ? "dayGridMonth,timeGridWeek,timeGridDay,listMonth" : "";
 
+  const handleAdd = function () {
+    ref.current.classList.add("shake");
+    setTimeout(() => {
+      ref.current.classList.remove("shake");
+    }, 1000);
+  };
+
   return (
     <Box m="20px">
       <Box
@@ -69,7 +79,7 @@ const Calendar = () => {
         mr="28px"
       >
         <Header title="CALENDAR" subtitle="Full Calendar Interactive Page" />
-        <Box onClick={() => handleOpen()} className="calendar-button">
+        <Box onClick={() => handleOpen()} className="calendar-button" ref={ref}>
           <Button
             sx={{
               backgroundColor: colors.blueAccent[700],
@@ -120,7 +130,7 @@ const Calendar = () => {
         </Box>
 
         {/* CALENDAR */}
-        <Box flex="1 1 100%" ml="15px">
+        <Box flex="1 1 100%" ml="15px" onClick={handleAdd}>
           <FullCalendar
             height="75vh"
             plugins={[
