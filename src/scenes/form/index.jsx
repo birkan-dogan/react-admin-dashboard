@@ -1,8 +1,8 @@
 import { Box, Button, TextField } from "@mui/material";
 import { Formik } from "formik";
-import * as yup from "yup";
 import { useMediaQuery } from "@mui/material"; // for responsive design
 import Header from "../../components/Header";
+import userSchema, { formData } from "../../components/yup";
 
 const initialValues = {
   firstName: "",
@@ -12,24 +12,6 @@ const initialValues = {
   address1: "",
   address2: "",
 };
-
-// regEx for phone number validation
-const phoneRegExp =
-  /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
-
-// this schema consist of the validation logic for each field that we're using
-const userSchema = yup.object().shape({
-  firstName: yup.string().trim().required("required"),
-  lastName: yup.string().trim().required("required"),
-  email: yup.string().trim().email("invalid email").required("required"),
-  contact: yup
-    .string()
-    .trim()
-    .matches(phoneRegExp, "Phone number is not valid")
-    .required("required"),
-  address1: yup.string().trim().required("required"),
-  address2: yup.string().trim().required("required"),
-});
 
 const Form = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
@@ -63,84 +45,22 @@ const Form = () => {
               gridTemplateColumns="repeat(4,minmax(0, 1fr))"
               sx={{ "& > div": { gridColumn: isNonMobile ?? "span 4" } }}
             >
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="First Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.firstName}
-                name="firstName"
-                error={!!touched.firstName && !!errors.firstName} //  !! syntax forces the variable to become a boolean
-                helperText={touched.firstName && errors.firstName}
-                sx={{ gridColumn: "span 2" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Last Name"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.lastName}
-                name="lastName"
-                error={!!touched.lastName && !!errors.lastName} //  !! syntax forces the variable to become a boolean
-                helperText={touched.lastName && errors.lastName}
-                sx={{ gridColumn: "span 2" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Email"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.email}
-                name="email"
-                error={!!touched.email && !!errors.email} //  !! syntax forces the variable to become a boolean
-                helperText={touched.email && errors.email}
-                sx={{ gridColumn: "span 4" }} // span 4 filles up the entire line
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Contact Number"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.contact}
-                name="contact"
-                error={!!touched.contact && !!errors.contact} //  !! syntax forces the variable to become a boolean
-                helperText={touched.contact && errors.contact}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address 1"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address1}
-                name="address1"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
-                sx={{ gridColumn: "span 4" }}
-              />
-              <TextField
-                fullWidth
-                variant="filled"
-                type="text"
-                label="Address 2"
-                onBlur={handleBlur}
-                onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
-                sx={{ gridColumn: "span 4" }}
-              />
+              {formData.map((data) => (
+                <TextField
+                  key={data.id}
+                  fullWidth
+                  variant="filled"
+                  type="text"
+                  label={data.label}
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values[data.name]}
+                  name={data.name}
+                  error={!!touched[data.name] && !!errors[data.name]} //  !! syntax forces the variable to become a boolean
+                  helperText={touched[data.name] && errors[data.name]}
+                  sx={{ gridColumn: `${data.sx}` }}
+                />
+              ))}
             </Box>
             <Box display="flex" justifyContent="end" mt="20px">
               <Button type="submit" color="secondary" variant="contained">
